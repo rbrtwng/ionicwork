@@ -1,12 +1,12 @@
 {
-"dishes": [
+  "dishes": [
     {
       "id": 0,
       "name": "Uthapizza",
       "image": "images/uthapizza.png",
       "category": "mains",
       "label": "Hot",
-      "price": "4.99",
+      "price": 4.99,
       "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
       "comments": [
         {
@@ -38,6 +38,42 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": "5",
+          "name": "My",
+          "comment": "This is good",
+          "date": "2016-06-08T23:05:55.868Z"
+        },
+        {
+          "rating": "4",
+          "author": "Hoho",
+          "comment": "I think it's OK.",
+          "date": "2016-06-08T23:10:08.466Z"
+        },
+        {
+          "rating": "3",
+          "author": "dfaf",
+          "comment": "egggggg",
+          "date": "2016-06-08T23:10:56.928Z"
+        },
+        {
+          "rating": "4",
+          "comment": "4 comment",
+          "author": "4author",
+          "date": "2016-06-08T23:11:13.963Z"
+        },
+        {
+          "rating": "5",
+          "comment": "5 comment",
+          "author": "5 author",
+          "date": "2016-06-08T23:11:28.953Z"
+        },
+        {
+          "rating": "3",
+          "author": "Test",
+          "comment": "Hello",
+          "date": "2016-06-08T23:37:07.356Z"
         }
       ]
     },
@@ -209,7 +245,5 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": [
-
-  ]
+  "feedback": []
 }
