@@ -250,7 +250,7 @@ angular.module('conFusion.controllers', [])
             }
         }])
 
-.controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory','baseURL', function($scope, menuFactory, corporateFactory,baseURL) {
+.controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory','promotionFactory','baseURL', function($scope, menuFactory, corporateFactory,promotionFactory,baseURL) {
                         $scope.baseURL = baseURL;
                         $scope.leader = corporateFactory.get({id:3});
                         $scope.showDish = false;
@@ -265,7 +265,7 @@ angular.module('conFusion.controllers', [])
                                 $scope.message = "Error: "+response.status + " " + response.statusText;
                             }
                         );
-                        $scope.promotion = menuFactory.getPromotion().get({id:0});
+                        $scope.promotion = promotionFactory.get({id:0});
 
                         $scope.onSwipeLeft = function(){
                           console.log("on swipe left")

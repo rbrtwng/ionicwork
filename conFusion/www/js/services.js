@@ -31,6 +31,10 @@ angular.module('conFusion.services',['ngResource'])
 
         }])
 
+        .factory('promotionFactory',['$resource', 'baseURL', function($resource, baseURL){
+          return $resource(baseURL+"promotions/:id");
+        }])
+
         .factory('corporateFactory', ['$resource', 'baseURL', function($resource,baseURL) {
 
 
