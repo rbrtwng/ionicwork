@@ -161,15 +161,15 @@ angular.module('conFusion.controllers', [])
             };
         }])
 
-        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory','baseURL','$ionicPopover', '$ionicModal','favoriteFactory',
-        function($scope, $stateParams, menuFactory, baseURL,$ionicPopover,$ionicModal,favoriteFactory) {
+        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory','baseURL','$ionicPopover', '$ionicModal','favoriteFactory','dish',
+        function($scope, $stateParams, menuFactory, baseURL,$ionicPopover,$ionicModal,favoriteFactory, dish) {
 
             $scope.baseURL = baseURL;
             $scope.dish = {};
             $scope.showDish = false;
             $scope.message="Loading ...";
 
-            $scope.dish = menuFactory.get({id:parseInt($stateParams.id,10)});
+            $scope.dish = dish;//menuFactory.get({id:parseInt($stateParams.id,10)});
             /*.$promise.then(
                             function(response){
                                 $scope.dish = response;

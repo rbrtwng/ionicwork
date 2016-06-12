@@ -112,7 +112,12 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers','conFusion.service
     views: {
       'mainContent': {
         templateUrl: 'templates/dishdetails.html',
-        controller: 'DishDetailController'
+        controller: 'DishDetailController',
+        resolve:{
+          dish:['menuFactory', '$stateParams',function(menuFactory,$stateParams){
+            return menuFactory.get({id:parseInt($stateParams.id,10)});
+          }],
+        },
       }
     }
   });
