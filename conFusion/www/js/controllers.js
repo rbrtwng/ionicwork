@@ -64,7 +64,8 @@ angular.module('conFusion.controllers', [])
 
 })
 
-.controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
+.controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate','dishes',
+ function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, dishes) {
 
 
             $scope.baseURL = baseURL;
@@ -74,7 +75,8 @@ angular.module('conFusion.controllers', [])
             $scope.showMenu = false;
             $scope.message = "Loading ...";
 
-            menuFactory.query(
+            $scope.dishes = dishes;
+            /*menuFactory.query(
                 function(response) {
                     $scope.dishes = response;
                     $scope.showMenu = true;
@@ -85,6 +87,7 @@ angular.module('conFusion.controllers', [])
                 function(response) {
                     $scope.message = "Error: "+response.status + " " + response.statusText;
                 });
+                */
 
 
             $scope.select = function(setTab) {
