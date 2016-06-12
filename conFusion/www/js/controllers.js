@@ -166,8 +166,8 @@ angular.module('conFusion.controllers', [])
             $scope.showDish = false;
             $scope.message="Loading ...";
 
-            $scope.dish = menuFactory.get({id:parseInt($stateParams.id,10)})
-            .$promise.then(
+            $scope.dish = menuFactory.get({id:parseInt($stateParams.id,10)});
+            /*.$promise.then(
                             function(response){
                                 $scope.dish = response;
                                 $scope.showDish = true;
@@ -176,6 +176,7 @@ angular.module('conFusion.controllers', [])
                                 $scope.message = "Error: "+response.status + " " + response.statusText;
                             }
             );
+            */
 
             $scope.popover = $ionicPopover.fromTemplateUrl('templates/dish-detail-popover.html', {
               scope: $scope
@@ -192,14 +193,15 @@ angular.module('conFusion.controllers', [])
             };
 
             $scope.addFavorite = function(index){
+            //  console.log(index);
               favoriteFactory.addToFavorites(index);
               $scope.closeOptions();
 
             };
 
-            $scope.addComment = function(){
+          //  $scope.addComment = function(){
 
-            };
+            //};
 
             $scope.mycomment = {};
 
@@ -293,7 +295,7 @@ angular.module('conFusion.controllers', [])
                   return out;
 
               }})*/
-
+/*
         .filter('favoriteFilter', function () {
         return function (dishes, favorites) {
             //console.log(dishes);
@@ -308,18 +310,21 @@ angular.module('conFusion.controllers', [])
             return out;
 
         }})
+        */
 
-.controller('FavoritesController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout) {
+
+.controller('FavoritesController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout','dishes','favorites',
+      function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout,dishes,favorites) {
     $scope.baseURL = baseURL;
     $scope.shouldShowDelete = false;
 
-    $ionicLoading.show({
+  /*  $ionicLoading.show({
         template: '<ion-spinner></ion-spinner> Loading...'
-    });
+    }); */
 
-    $scope.favorites = favoriteFactory.getFavorites();
+    $scope.favorites = favorites;//favoriteFactory.getFavorites();
 
-    $scope.dishes = menuFactory.query(
+    $scope.dishes = dishes;/*menuFactory.query(
         function (response) {
             $scope.dishes = response;
             $timeout(function () {
@@ -331,7 +336,7 @@ angular.module('conFusion.controllers', [])
             $timeout(function () {
                 $ionicLoading.hide();
             }, 1000);
-        });
+        }); */
     console.log($scope.dishes, $scope.favorites);
 
     $scope.toggleDelete = function () {
