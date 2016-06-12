@@ -273,9 +273,9 @@ angular.module('conFusion.controllers', [])
 
                     }])
 
-        .controller('AboutController', ['$scope', 'corporateFactory','baseURL', function($scope, corporateFactory, baseURL) {
+        .controller('AboutController', ['$scope','baseURL','leaders', function($scope, baseURL, leaders) {
                     $scope.baseURL = baseURL;
-                    $scope.leaders = corporateFactory.query();
+                    $scope.leaders = leaders; //corporateFactory.query();
                     console.log($scope.leaders);
 
                     }])
