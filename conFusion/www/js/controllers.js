@@ -65,8 +65,8 @@ angular.module('conFusion.controllers', [])
 
 })
 
-.controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate','dishes',
- function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, dishes) {
+.controller('MenuController', ['$scope', 'favoriteFactory', 'baseURL', '$ionicListDelegate','dishes',
+ function ($scope, favoriteFactory, baseURL, $ionicListDelegate, dishes) {
 
 
             $scope.baseURL = baseURL;
@@ -162,8 +162,8 @@ angular.module('conFusion.controllers', [])
             };
         }])
 
-        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory','baseURL','$ionicPopover', '$ionicModal','favoriteFactory','dish',
-        function($scope, $stateParams, menuFactory, baseURL,$ionicPopover,$ionicModal,favoriteFactory, dish) {
+        .controller('DishDetailController', ['$scope', '$stateParams','baseURL','$ionicPopover', '$ionicModal','favoriteFactory','dish',
+        function($scope, $stateParams, baseURL,$ionicPopover,$ionicModal,favoriteFactory, dish) {
 
             $scope.baseURL = baseURL;
             $scope.dish = {};
@@ -317,8 +317,8 @@ angular.module('conFusion.controllers', [])
         */
 
 
-.controller('FavoritesController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout','dishes','favorites',
-      function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout,dishes,favorites) {
+.controller('FavoritesController', ['$scope','favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout','dishes','favorites',
+      function ($scope,favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout,dishes,favorites) {
     $scope.baseURL = baseURL;
     $scope.shouldShowDelete = false;
 
