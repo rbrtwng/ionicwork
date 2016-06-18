@@ -212,7 +212,7 @@ $scope.selectPicture = function(){
 
       },function(){
 
-      })
+      });
   };
 
 
@@ -250,8 +250,9 @@ $scope.selectPicture = function(){
             };
         }])
 
-        .controller('DishDetailController', ['$scope', '$stateParams','baseURL','$ionicPopover', '$ionicModal','favoriteFactory','dish',
-        function($scope, $stateParams, baseURL,$ionicPopover,$ionicModal,favoriteFactory, dish) {
+        .controller('DishDetailController', ['$scope', '$stateParams','baseURL','$ionicPopover', '$ionicModal','favoriteFactory','dish','$ionicPlatform','$cordovaLocalNotification',
+        '$cordovaToast',
+        function($scope, $stateParams, baseURL,$ionicPopover,$ionicModal,favoriteFactory, dish,$ionicPlatform,$cordovaLocalNotification,$cordovaToast) {
 
             $scope.baseURL = baseURL;
             $scope.dish = {};
@@ -288,6 +289,25 @@ $scope.selectPicture = function(){
             //  console.log(index);
               favoriteFactory.addToFavorites(index);
               $scope.closeOptions();
+              $ionicPlatform.ready(function(){
+                $cordovaLocalNotification.schedule({
+                  id: 1,
+                  title:"Added Favorite",
+                  text: $scope.dish.name
+                }).then(function(){
+                  console.log('Added Favorite ' + $scope.dish.name);
+                }, function(){
+                  console.log('Failed to add Favorite');
+                })
+              });
+
+              $cordovaToast
+              .show('Added Favorite ' + $scope.dish.name,'long','bottom')
+              .then(function(){
+
+              },function(){
+
+              });
 
             };
 
@@ -405,8 +425,8 @@ $scope.selectPicture = function(){
         */
 
 
-.controller('FavoritesController', ['$scope','favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout','dishes','favorites',
-      function ($scope,favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout,dishes,favorites) {
+.controller('FavoritesController', ['$scope','favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout','dishes','favorites','$cordovaVibration',
+      function ($scope,favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout,dishes,favorites,$cordovaVibration) {
     $scope.baseURL = baseURL;
     $scope.shouldShowDelete = false;
 
@@ -447,6 +467,7 @@ $scope.selectPicture = function(){
               if (res) {
                   console.log('Ok to delete');
                   favoriteFactory.deleteFromFavorites(index);
+                  $cordovaVibration.vibrate(10000);
               } else {
                   console.log('Canceled delete');
               }
