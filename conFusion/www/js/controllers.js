@@ -467,7 +467,11 @@ $scope.selectPicture = function(){
               if (res) {
                   console.log('Ok to delete');
                   favoriteFactory.deleteFromFavorites(index);
-                  $cordovaVibration.vibrate(10000);
+
+                  $ionicPlatform.ready(function(){
+                      $cordovaVibration.vibrate(10000);
+                  });
+
               } else {
                   console.log('Canceled delete');
               }
