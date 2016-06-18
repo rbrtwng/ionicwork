@@ -1,40 +1,46 @@
 <ion-modal-view>
 <ion-header-bar>
-  <h1 class="title">Reserve Table</h1>
+  <h1 class="title">Register</h1>
   <div class="buttons">
-    <button class="button button-clear" ng-click="closeReserve()">Close</button>
+    <button class="button button-clear button-positive" ng-click="closeRegister()">Close</button>
   </div>
 </ion-header-bar>
 <ion-content>
-<form ng-submit="doReserve()" id="reserveForm" name="reserveForm">
+<form ng-submit="doRegister()" id="registerForm" name="registerForm">
   <div class="list">
-    <label class="item item-input item-select">
-      <span class="input-label">Number of Guests</span>
-      <select ng-model="reservation.numGuests">
-               <option ng-repeat="n in [1,2,3,4,5,6]" value="{{n}}">{{n}}</option>
-      </select>
-    </label>
-    <li class="item item-toggle">
-        Smoking?
-        <label class="toggle toggle-assertive">
-           <input type="checkbox" ng-model="reservation.smoking">
-            <div class="track">
-                <div class="handle">
-                </div>
-            </div>
-        </label>
-        </li>
-        <label class="item item-input">
-          <span class="input-label">Date</span>
-          <input type="date" ng-model="reservation.date">
+    <label class="item item-input">
+       <span class="input-label">Your Picture</span>
+       </label>
+       <label class="item item-input">
+       <img class="padding" ng-src="{{registration.imgSrc}}">
+       </label>
+       <label class="item item-input">
+       <button class="button button-block button-positive" type="button" ng-click="takePicture()">
+            Take Picture
+        </button>
         </label>
         <label class="item item-input">
-          <span class="input-label">Time</span>
-          <input type="time" ng-model="reservation.time"
-           name="reservetime" min="11:00:00" max="21:00:00">
+          <span class="input-label">First Name</span>
+          <input type="text" ng-model="registration.firstname">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text" ng-model="registration.lastname">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="registration.username">
+        </label>
+       <label class="item item-input">
+          <span class="input-label">Telephone Number</span>
+          <input type="tel" ng-model="registration.telnum">
+        </label>
+       <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="registration.email">
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Reserve</button>
+          <button class="button button-block button-positive" type="submit">Register</button>
         </label>
   </div>
 </form>
