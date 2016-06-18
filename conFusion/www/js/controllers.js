@@ -65,6 +65,12 @@ angular.module('conFusion.controllers', [])
 
   $scope.registeration ={};
 
+  $ionicModal.fromTemplateUrl('templates/register.html',{
+     scope:$scope
+  }).then(function(modal){
+    $scope.registerForm = modal;
+  });
+
 })
 
 .controller('MenuController', ['$scope', 'favoriteFactory', 'baseURL', '$ionicListDelegate','dishes','$ionicPlatform','$cordovaLocalNotification','$cordovaToast',
